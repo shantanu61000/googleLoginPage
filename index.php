@@ -57,7 +57,7 @@ else{
                     <?php
                     }
                     ?>
-
+                    
                     <input type="text" placeholder="Username" name="uname" class="form-control"> <br>
                     <input type="password" placeholder="Password" name="password" class="form-control"> <br><br>
                     <div class="row">

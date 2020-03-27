@@ -26,9 +26,29 @@ $_SESSION['gender']=$userData['gender'];
 $_SESSION['user']="google";
 $_SESSION['profilepic']=$userData['picture'];
 
-$insertQuery="insert into userdata(gid,name,gender,pass,profilepic) values ('".$_SESSION['id']."','".$_SESSION['name']."','".$_SESSION['gender']."','null','".$_SESSION['profilepic']."')";
-mysqli_query($con,$query);
-header("location:welcome.php");
+$selectQuery="select * from userdata where gid='".$userData['id']."'";
+
+$selRes = mysqli_query($con,$selectQuery);
+
+
+if($ans = mysqli_fetch_array($selRes)){
+    header("location:welcome.php");
+    exit();
+}
+else{
+
+    $insertQuery="insert into userdata(gid,name,gender,pass,profilepic) values ('".$_SESSION['id']."','".$_SESSION['name']."','".$_SESSION['gender']."','null','".$_SESSION['profilepic']."')";
+    mysqli_query($con,$insertQuery);
+    header("location:welcome.php");
+    exit();
+
+}
+
+
+
+  
+
+
 
 
 ?>
