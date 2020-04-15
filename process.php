@@ -1,8 +1,10 @@
 <?php
 //session_destroy();
 require_once("connection.php");
+ini_set('session.cookie_lifetime', 60 * 60 * 24 * 365);
+ini_set('session.gc-maxlifetime', 60 * 60 * 24 * 365);
 session_start();
-if($_SESSION['user']){
+if(isset($_SESSION['user'])){
     header("location:welcome.php");
 }
 

@@ -1,7 +1,8 @@
 <?php
 require_once("config.php");
 require_once("connection.php");
-
+ini_set('session.cookie_lifetime', 60 * 60 * 24 * 365);
+ini_set('session.gc-maxlifetime', 60 * 60 * 24 * 365);
 if(isset($_SESSION['access_token'])){
     $gClient->setAccessToken($_SESSION['access_token']);
 }

@@ -1,5 +1,7 @@
 <?php
 require_once("connection.php");
+ini_set('session.cookie_lifetime', 60 * 60 * 24 * 365);
+ini_set('session.gc-maxlifetime', 60 * 60 * 24 * 365);
 session_start();
 
 if(isset($_POST['submit_btn'])){
